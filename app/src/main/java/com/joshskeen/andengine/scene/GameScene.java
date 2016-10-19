@@ -120,7 +120,7 @@ public class GameScene extends BaseScene {
     }
 
     private void createBackground() {
-        setBackground(new Background(Color.WHITE));
+        setBackground(new Background(Color.CYAN));
     }
 
 
