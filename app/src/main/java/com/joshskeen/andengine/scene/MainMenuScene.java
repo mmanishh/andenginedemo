@@ -1,6 +1,9 @@
 package com.joshskeen.andengine.scene;
 
+import android.view.Window;
+
 import com.joshskeen.andengine.BaseScene;
+import com.joshskeen.andengine.GameActivity;
 import com.joshskeen.andengine.SceneManager;
 
 import org.andengine.engine.camera.Camera;
@@ -47,7 +50,7 @@ public class MainMenuScene extends BaseScene {
 
     private void createBackground()
     {
-        attachChild(new Sprite(400, 240, resourcesManager.menu_background_region, vbom)
+        attachChild(new Sprite(0, 0, resourcesManager.menu_background_region, vbom)
         {
             @Override
             protected void preDraw(GLState pGLState, Camera pCamera)
@@ -61,7 +64,7 @@ public class MainMenuScene extends BaseScene {
     private void createMenuChildScene()
     {
         menuChildScene = new MenuScene(camera);
-        menuChildScene.setPosition(400, 240);
+        menuChildScene.setPosition(50, 50);
 
         final IMenuItem playMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_PLAY, resourcesManager.play_region, vbom), 1.2f, 1);
         final IMenuItem optionsMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_OPTIONS, resourcesManager.options_region, vbom), 1.2f, 1);
@@ -72,8 +75,8 @@ public class MainMenuScene extends BaseScene {
         menuChildScene.buildAnimations();
         menuChildScene.setBackgroundEnabled(false);
 
-        playMenuItem.setPosition(playMenuItem.getX(), playMenuItem.getY() + 10);
-        optionsMenuItem.setPosition(optionsMenuItem.getX(), optionsMenuItem.getY() - 110);
+        playMenuItem.setPosition(playMenuItem.getX(), playMenuItem.getY() + 100);
+        optionsMenuItem.setPosition(optionsMenuItem.getX(), optionsMenuItem.getY() - 100);
 
         menuChildScene.setOnMenuItemClickListener(new MenuScene.IOnMenuItemClickListener() {
             @Override
